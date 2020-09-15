@@ -3,7 +3,7 @@
 
 #import flask
 from flask import Flask, render_template
-from .models import DB, User, insert_example_users
+from .models import DB, User, insert_example_users, insert_example_tweets
 
 def create_app():
     #initializing flask and data models 
@@ -24,11 +24,15 @@ def create_app():
         DB.create_all()
         #calls our function within the models.py file to insert users
         insert_example_users()
-        
+                
         #a select * query using SQLAlchemy
         users = User.query.all()
         # Rendering template that we creating passing home and query to template
         return render_template('base.html', title='Home', users=User.query.all())
 
+    @app.route('/add_test_tweets')
+    def add_tweets():
+        insert_example_tweets()
+        return 'tweets added'
     #returns the app with everything we are trying to render
     return app

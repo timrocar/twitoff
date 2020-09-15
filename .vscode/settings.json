@@ -1,0 +1,7 @@
+{
+    "python.pythonPath": "C:\\Users\\timro\\.virtualenvs\\twitoff-mRsHMCiN\\Scripts\\python.exe",
+    "python.linting.pylintArgs": [
+        "--load-plugins",
+        "pylint-flask"
+    ]
+}
